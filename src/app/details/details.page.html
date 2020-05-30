@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details de Pizza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{ cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card *ngIf="pizza">
+    <ion-card-content>
+
+
+      <img [src]="pizza.photo" class="image" />
+      <ion-card-title>
+        <label>Pizza : </label> {{ pizza.nom }}
+
+      </ion-card-title>
+      <p>
+        <label>Prix : </label>{{ pizza.prix }} €
+      </p>
+      <p>
+        <label>Ingredient : </label>
+        <!-- <i>{{ pizzaingredient.nom }}</i> -->
+      </p>
+      <div *ngFor="let pizzaingrdt of pig">
+        <p>{{ pizzaingrdt.nom }}</p>
+      </div>
+      <div class="pizzas">
+        <ion-button (click)="addToCart(pizza)">
+          <div>Ajouter au Panier</div>
+        </ion-button>
+      </div>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

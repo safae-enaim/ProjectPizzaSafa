@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="pageAcc">
+    <ion-title>
+      <h3 class="color">Bienvenue sur Pizza'Safa</h3>
+    </ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{ cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <h3 text-align="center">Liste des pizzas</h3>
+
+  <ion-card *ngFor="let pizza of pizzaTab ">
+    <ion-card-content class="pizzas">
+      <img [src]="pizza.photo" class="image" />
+      <ion-card-title>
+        <label>Pizza : </label> {{ pizza.nom }}
+
+      </ion-card-title>
+      <p>
+        <label style="font-weight:bold;">Prix : </label>{{ pizza.prix }} €
+      </p>
+      <div class="pizzas">
+        <button ion-button name="cart" class="pizzas" routerLink="/details/{{pizza.id}}">
+          <ion-icon name="walk" slot="start" class="pizzas"></ion-icon>
+          <div text-center>Details de la pizza</div>
+
+        </button>
+      </div>
+    </ion-card-content>
+
+
+    <div class="pizzas">
+      <ion-button (click)="addToCart(pizza)">
+        <div>Ajouter au Panier</div>
+      </ion-button>
+    </div>
+  </ion-card>
+
+</ion-content>

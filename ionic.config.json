@@ -1,0 +1,7 @@
+{
+  "name": "projpizza",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

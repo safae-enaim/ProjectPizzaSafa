@@ -1,0 +1,53 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  ion-card{
+    max-width: 300px;
+  }
+  ion-item.ion-activated{
+    cursor: pointer;
+  }
+
+}
+.position{
+float: right;
+background : #00BFFF;
+background-text : #FFFFFF;
+
+
+width:150px;
+height:80px;
+}
+ion-content ion-toolbar {
+  --background: translucent;
+}
+.pizzaList {
+  text-align: left;
+  color: #FF0000;
+  text-decoration: underline;
+
+  }
+  .color {
+  color : #FFFFFF;
+  text-align : center;
+  }
+
+  .pageAcc {
+   --background: url(../../assets/imgspizza/pizza.png);
+
+  }
+
+  .pizzas {
+    text-align: center;
+
+    }
+ .image {
+ 	width: 400px;
+ 	height: 400px;
+ }
+
