@@ -2,14 +2,19 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Pizza } from "../../models/pizza";
 import { Ingredient } from "../../models/ingredient";
+import { map, catchError, tap } from "rxjs/operators";
 
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, throwError } from "rxjs";
 
 @Injectable()
 export class PizzaService {
   panier: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
   private pizzasUrl = "https://api.ynov.jcatania.io/pizza";
   private ingredientsUrl = "https://api.ynov.jcatania.io/ingredient";
+  private endpoint = "pizzas";
+
+  private cart = [];
+  private cartItemCount = new BehaviorSubject(0);
 
   constructor(private http: HttpClient) {
     console.log("Hello PizzaService ");
@@ -18,6 +23,11 @@ export class PizzaService {
   public getAllPizzas(): any {
     const url = this.pizzasUrl;
     return this.http.get<Pizza[]>(url);
+  }
+
+  public getAllingredients(): any {
+    const url = this.ingredientsUrl;
+    return this.http.get<Ingredient[]>(url);
   }
 
   addPizzaToCart(myNumb: number) {
@@ -41,9 +51,6 @@ export class PizzaService {
     return this.http.get<Ingredient>(url);
   }
 
-  /* */
-  private cart = [];
-  private cartItemCount = new BehaviorSubject(0);
 
   getCart() {
     return this.cart;
@@ -88,5 +95,32 @@ export class PizzaService {
         this.cart.splice(index, 1);
       }
     }
+  }
+
+  createpizza(pizza: Pizza) {
+    return this.http.post(this.pizzasUrl, pizza).pipe(
+      tap((status) => console.log("status: " + status)),
+      catchError(this.handleError)
+    );
+  }
+
+  updatepizza(pizza: Pizza) {
+    return this.http.put(this.pizzasUrl + "/" + pizza.id, pizza).pipe(
+      tap((status) => console.log("status: " + status)),
+      catchError(this.handleError)
+    );
+  }
+
+
+
+  deletepizza(idpizza: number) {
+    return this.http.delete(this.pizzasUrl + "/" + idpizza).pipe(
+      tap((status) => console.log("status: " + status)),
+      catchError(this.handleError)
+    );
+  }
+  private handleError(error: any) {
+    console.error(error);
+    return throwError(error);
   }
 }

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administration Pizza's</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="pizza">
+    <ion-button class="round" style="--background:green" routerLink="/add-pizza">
+      <div>Ajouter une Pizza</div>
+    </ion-button>
+    <ion-button class="round" style="--background: green" (click)="addToCart(pizza)">
+      <div>Ajouter un ingredient</div>
+    </ion-button>
+  </div>
+
+
+  <h3 text-align="center">Liste des pizzas</h3>
+
+  <ion-card *ngFor="let pizza of pizzaTab ">
+    <ion-card-content class="pizzas">
+      <img [src]="pizza.photo" class="image" />
+      <ion-card-title>
+        <label>Pizza : </label> {{ pizza.nom }}
+
+      </ion-card-title>
+      <p>
+        <label style="font-weight:bold;">Prix : </label>{{ pizza.prix }} €
+      </p>
+
+    </ion-card-content>
+    <div class="pizzas">
+      <ion-button style="--background:red" (click)="RemovePizza(pizza.id)">
+        <div>Supprimer la Pizza</div>
+      </ion-button>
+      <ion-button style="--background:orange" routerLink="/edit-pizza/{{pizza.id}}">
+        <div>Modifier la Pizza</div>
+      </ion-button>
+    </div>
+  </ion-card>
+
+</ion-content>

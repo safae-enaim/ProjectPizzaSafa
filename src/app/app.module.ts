@@ -3,7 +3,7 @@ import { PizzaService } from "./providers/pizza-service/pizza-service";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy, RouterModule } from "@angular/router";
-
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
@@ -23,6 +23,8 @@ import { CartModalPage } from "./cart-modal/cart-modal.page";
     CartModalPageModule,
     HttpClientModule,
     RouterModule.forRoot([]),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     StatusBar,

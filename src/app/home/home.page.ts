@@ -12,7 +12,6 @@ import { CartModalPage } from "../cart-modal/cart-modal.page";
 })
 export class HomePage {
   pizzaTab: Pizza[] = [];
-  panier: number[];
   presentation: any;
 
   cart = [];
@@ -32,13 +31,6 @@ export class HomePage {
     this.cartItemCount = this.pizzaService.getCartItemCount();
   }
 
-  addPizza(id: number) {
-    this.pizzaService.addPizzaToCart(id);
-  }
-
-  rmPizza(numb: number) {
-    this.pizzaService.deletePizzaFromCart(numb);
-  }
 
   /* */
 

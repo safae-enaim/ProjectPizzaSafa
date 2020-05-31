@@ -51,7 +51,6 @@ export class DetailsPage implements OnInit {
           });
       }
     });
-    console.log("mourad");
     console.log(this.pig);
   }
 

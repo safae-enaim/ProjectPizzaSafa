@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modification de Pizza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="editForm" (ngSubmit)="submitForm()">
+      <input type="hidden" formControlName="id">
+      <br>
+      <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="Nom" formControlName="nom">
+      </div>
+      <br>
+      <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="Prix" formControlName="prix">
+      </div>
+      <br>
+      <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="Photo" formControlName="photo">
+      </div>
+      <br>
+      <div class="form-group input-group-lg">
+        <select formControlName="ingredients" multiple>
+          <option value="{{ing.id}}" *ngFor="let ing of ingredients">{{ing.nom}}</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <button class="btn btn-danger btn-block btn-lg">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</ion-content>
