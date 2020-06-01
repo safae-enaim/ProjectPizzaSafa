@@ -1,11 +1,17 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons style="--background:red" slot="start">
+      <ion-back-button style="--background:green" defaultHref="home">
+      </ion-back-button>
+    </ion-buttons>
     <ion-title>Administration Pizza's</ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>
-  <div  text-align="right">
+  <div  class="pizza">
     <ion-button class="round" style="--background:green" routerLink="/add-pizza">
       <div>Ajouter une Pizza</div>
     </ion-button>
