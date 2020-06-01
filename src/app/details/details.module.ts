@@ -15,7 +15,7 @@ import { HttpClient} from '@angular/common/http';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailsPageRoutingModule
+    DetailsPageRoutingModule,
     RouterModule.forChild([
           {
             path: '',
