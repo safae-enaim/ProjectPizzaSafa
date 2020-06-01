@@ -15,16 +15,10 @@ import { HttpClient} from '@angular/common/http';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailsPageRoutingModule,
-    RouterModule.forChild([
-          {
-            path: '',
-            component: LoginPage
-          }
-        ])
+    DetailsPageRoutingModule
+
   ],
   declarations: [DetailsPage],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
       providers: [PizzaService,HttpClient]
 
