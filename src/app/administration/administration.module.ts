@@ -21,7 +21,6 @@ import { AdministrationPage } from './administration.page';
   ],
   declarations: [AdministrationPage],
 
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: [PizzaService,HttpClient]
 
 })
