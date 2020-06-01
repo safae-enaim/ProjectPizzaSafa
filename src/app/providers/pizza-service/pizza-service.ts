@@ -6,7 +6,9 @@ import { map, catchError, tap } from "rxjs/operators";
 
 import { BehaviorSubject, Observable, throwError } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class PizzaService {
   panier: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
   private pizzasUrl = "https://api.ynov.jcatania.io/pizza";

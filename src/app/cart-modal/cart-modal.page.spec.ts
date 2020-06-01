@@ -18,7 +18,5 @@ describe('CartModalPage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+
 });

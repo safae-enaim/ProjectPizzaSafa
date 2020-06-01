@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PizzaService } from '../providers/pizza-service/pizza-service';
 import { HttpClient} from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -12,12 +13,15 @@ import { AdministrationPage } from './administration.page';
 
 @NgModule({
   imports: [
+  RouterModule,
     CommonModule,
     FormsModule,
     IonicModule,
     AdministrationPageRoutingModule
   ],
   declarations: [AdministrationPage],
+
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: [PizzaService,HttpClient]
 
 })

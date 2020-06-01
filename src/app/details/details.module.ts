@@ -6,7 +6,7 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
 import { IonicModule } from '@ionic/angular';
 
 import { DetailsPageRoutingModule } from './details-routing.module';
-
+import {RouterModule} from '@angular/router';
 import { DetailsPage } from './details.page';
 import { HttpClient} from '@angular/common/http';
 
@@ -16,8 +16,16 @@ import { HttpClient} from '@angular/common/http';
     FormsModule,
     IonicModule,
     DetailsPageRoutingModule
+    RouterModule.forChild([
+          {
+            path: '',
+            component: LoginPage
+          }
+        ])
   ],
   declarations: [DetailsPage],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
       providers: [PizzaService,HttpClient]
 
 })
